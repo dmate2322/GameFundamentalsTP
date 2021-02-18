@@ -1,17 +1,28 @@
-
 #include "Game.h"
 
-
-
-
+//Create our Game object
 Game* g_game = 0;
 
-int main(int argc, char* args[]) // Main MUST have these parameter for SDL.
+/*
+	   Initialize
+			|
+	 |--Get Input
+	 |		|
+	 |	Physics
+	 |		|
+	 |--Rendering
+			|
+		  Exit
+*/
+
+
+int main(int argc, char* args[])
 {
 	g_game = new Game();
 
+	g_game->init("Example 10-01: Drawing Sprites", 100, 100, 640, 480, false);
 
-	g_game -> init("SDL_Window",100,100,640,480,false);
+	g_game->prepare();
 
 	while (g_game->running())
 	{
@@ -24,3 +35,6 @@ int main(int argc, char* args[]) // Main MUST have these parameter for SDL.
 
 	return 0;
 }
+
+
+
